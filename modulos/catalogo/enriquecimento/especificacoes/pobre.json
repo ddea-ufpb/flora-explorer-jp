@@ -1,0 +1,11 @@
+{
+  "nome": "pobre",
+  "arquivo_regras": null,
+  "sistema": "Você recebe um nome popular de planta e deve dizer a qual espécie ele se refere. Use as ferramentas e termine chamando registrar.",
+  "descricoes": {
+    "consultar_nome_popular": "Devolve as espécies associadas a um nome popular.",
+    "consultar_especie": "Devolve dados de uma espécie.",
+    "buscar_semelhante": "Procura nomes populares parecidos.",
+    "registrar": "Registra o resultado."
+  }
+}

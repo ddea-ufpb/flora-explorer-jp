@@ -7,5 +7,5 @@ Ao explorar o bruto, verifiquei que a fonte já traz `establishmentMeans` (`Nati
 O que muda:
 
 - **Etapa 1 (sem mudança de fonte):** item do corpus = um nome popular em português associado a espécies da PB (2.413 itens, 292 ambíguos).
-- **Etapa 2 (o que o modelo decide):** dado um nome popular, decidir a qual `nome_cientifico` aceito ele se refere no contexto de João Pessoa. Isso inclui escolher entre várias espécies quando o nome é ambíguo (ex.: `alecrim` → *Rosmarinus officinalis* ou *Pectis elongata*) e reconhecer variantes de grafia que nenhuma regra resolve (ex.: `avelós` × `aveloz`).
+- **Etapa 2 (o que o modelo decide):** dado um nome popular ambíguo, isto é, associado pela fonte a mais de uma espécie da PB, decidir a qual `nome_cientifico` aceito ele se refere no contexto de João Pessoa (ex.: `alecrim` → *Rosmarinus officinalis* ou *Pectis elongata*), ou responder `indeterminado`. Nomes com um único candidato (2.121 dos 2.413) são resolvidos por consulta, sem modelo.
 - **`origem`:** `nativa` / `exotica` vêm por regra a partir da fonte. `exotica_invasora` não existe nesta fonte e fica fora do Trabalho 2.
