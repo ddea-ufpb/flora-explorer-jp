@@ -1,0 +1,422 @@
+{
+  "rodada": "exec2-boa",
+  "spec": "boa",
+  "modelo": "qwen3:1.7b",
+  "digest_modelo": "8f68893c685c3ddff2aa3fffce2aa60a30bb2da65ca488b61fff134a4d1730e7",
+  "n_itens": 40,
+  "formato_valido": 40,
+  "acuracia": 0.275,
+  "acuracia_decididos": 0.524,
+  "n_decididos": 21,
+  "tempo_total_s": 665.6,
+  "passos_media": 2.15,
+  "passos_mediana": 2.0,
+  "passos_max": 5,
+  "nao_resolvidos": 0,
+  "chamadas_invalidas": 0,
+  "respostas_sem_ferramenta": 3,
+  "matriz": {
+    "decidido": {
+      "mesma espécie do gabarito": 11,
+      "outra espécie": 10,
+      "indeterminado": 0,
+      "não resolvido": 0
+    },
+    "indeterminado": {
+      "mesma espécie do gabarito": 0,
+      "outra espécie": 19,
+      "indeterminado": 0,
+      "não resolvido": 0
+    }
+  },
+  "acuracia_por_confianca": {
+    "alta": {
+      "acertos": 11,
+      "itens": 40
+    }
+  },
+  "erros": [
+    {
+      "id": "flora-2026-000129",
+      "texto": "amor-de-velho",
+      "gabarito": "indeterminado",
+      "gabarito_justificativa": "Quatro Desmodium com 'amor-de-velho' sem localidade; nada na fonte desempata.",
+      "modelo": "Desmodium adscendens (22931)",
+      "modelo_confianca": "alta",
+      "modelo_justificativa": "O nome popular 'amor-de-velho' é comum em praças, ruas, quintais e parques urbanos de João Pessoa, e o espécime correspondente é 'Desmodium adscendens' (fonte_reflora_id: 22931).",
+      "ferramentas": [
+        "consultar_nome_popular",
+        "registrar"
+      ]
+    },
+    {
+      "id": "flora-2026-000132",
+      "texto": "amor-seco",
+      "gabarito": "indeterminado",
+      "gabarito_justificativa": "D. axillare e D. incanum com 'amor-seco' sem localidade; empate.",
+      "modelo": "Desmodium axillare (22933)",
+      "modelo_confianca": "alta",
+      "modelo_justificativa": "A espécie 'Desmodium axillare' (amor-seco) é comum em praças, ruas e quintais de João Pessoa e é cultivada como ornamental e alimentícia. Além disso, o nome popular 'amor-seco' é registrado para o Nordeste e estados vizinhos, o que favorece essa espécie. O domínio 'Mata Atlântica' também é preferido em relação ao 'Cerrado'.",
+      "ferramentas": [
+        "consultar_nome_popular",
+        "registrar"
+      ]
+    },
+    {
+      "id": "flora-2026-000323",
+      "texto": "batatarana",
+      "gabarito": "indeterminado",
+      "gabarito_justificativa": "Distimake macrocalyx (Brasil) e três Ipomoea (sem localidade) dividem o nome; empate.",
+      "modelo": "Distimake macrocalyx (604876)",
+      "modelo_confianca": "alta",
+      "modelo_justificativa": "A espécie 'Distimake macrocalyx' é comum em praças, ruas, quintais e parques urbanos de João Pessoa, especialmente em áreas de cultivo e uso urbano, conforme as regras de desempate.",
+      "ferramentas": [
+        "consultar_nome_popular",
+        "registrar"
+      ]
+    },
+    {
+      "id": "flora-2026-000357",
+      "texto": "boa-noite",
+      "gabarito": "Turnera subulata (21354)",
+      "gabarito_justificativa": "Turnera subulata é o único com 'boa-noite' registrado para o Nordeste; os demais sem localidade.",
+      "modelo": "Catharanthus roseus (80256)",
+      "modelo_confianca": "alta",
+      "modelo_justificativa": "Espécie comum em praças, ruas e quintais de João Pessoa, com uso urbano e cultivado (ornamental, alimentícia) e ocorrendo na Mata Atlântica.",
+      "ferramentas": [
+        "consultar_nome_popular",
+        "registrar"
+      ]
+    },
+    {
+      "id": "flora-2026-000465",
+      "texto": "calumbi",
+      "gabarito": "indeterminado",
+      "gabarito_justificativa": "Piptadenia retusa (Nordeste) e Senegalia bahiensis (semiárido) são ambos compatíveis com a PB; empate.",
+      "modelo": "Piptadenia adiantoides (18944)",
+      "modelo_confianca": "alta",
+      "modelo_justificativa": "O nome popular 'calumbi' é registrado em praças, ruas, quintais e parques urbanos de João Pessoa, indicando uso urbano. Além disso, a espécie ocorre na Mata Atlântica e na Caatinga, conforme as regras de desempate.",
+      "ferramentas": [
+        "consultar_nome_popular",
+        "registrar"
+      ]
+    },
+    {
+      "id": "flora-2026-000534",
+      "texto": "capim-bambu",
+      "gabarito": "indeterminado",
+      "gabarito_justificativa": "Pharus lappulaceus e P. latifolius com 'capim-bambu' sem localidade; empate.",
+      "modelo": "Pharus lappulaceus (13520)",
+      "modelo_confianca": "alta",
+      "modelo_justificativa": "O nome popular 'capim-bambu' é comum em praças, ruas e quintais de João Pessoa e é associado ao domínio da Mata Atlântica. A espécie 'Pharus lappulaceus' é comum em áreas urbanas e tem uso cultivado em João Pessoa. Portanto, a regra de desempate favorável é a 1.",
+      "ferramentas": [
+        "consultar_nome_popular",
+        "registrar"
+      ]
+    },
+    {
+      "id": "flora-2026-000730",
+      "texto": "carrapicho-namorado",
+      "gabarito": "indeterminado",
+      "gabarito_justificativa": "D. axillare e D. incanum com 'carrapicho-namorado' sem localidade; empate.",
+      "modelo": "Desmodium axillare (22933)",
+      "modelo_confianca": "alta",
+      "modelo_justificativa": "O nome popular 'carrapicho-namorado' é comum em praças, ruas e quintais de João Pessoa, e o candidato 'Desmodium axillare' é comum em áreas urbanas e cultivadas. Além disso, o nome é registrado para o Nordeste e estados vizinhos, o que favorece o candidato com uso urbano em João Pessoa.",
+      "ferramentas": [
+        "consultar_nome_popular",
+        "registrar"
+      ]
+    },
+    {
+      "id": "flora-2026-000742",
+      "texto": "carvão-branco",
+      "gabarito": "Croton glandulosus (17514)",
+      "gabarito_justificativa": "Croton glandulosus tem 'carvão-branco' no Nordeste; Callisthene fasciculata só no Mato Grosso.",
+      "modelo": "Callisthene fasciculata (15275)",
+      "modelo_confianca": "alta",
+      "modelo_justificativa": "O nome popular 'carvão-branco' é comum em praças, ruas, quintais e parques urbanos de João Pessoa, e o candidato 'Callisthene fasciculata' é comum em áreas urbanas e possui nomes populares como 'cravo' e 'jacaré' que indicam uso cultivado ou urbano.",
+      "ferramentas": [
+        "consultar_nome_popular",
+        "consultar_especie",
+        "consultar_especie",
+        "buscar_semelhante",
+        "registrar"
+      ]
+    },
+    {
+      "id": "flora-2026-000840",
+      "texto": "cipó-de-cobra",
+      "gabarito": "indeterminado",
+      "gabarito_justificativa": "Três Aristolochia com 'cipó-de-cobra' em âmbito Brasil; Cissus decidua só na BA; empate entre as Aristolochia.",
+      "modelo": "Aristolochia disticha (80577)",
+      "modelo_confianca": "alta",
+      "modelo_justificativa": "O cipó-de-cobra é comum em praças, ruas e quintais de João Pessoa, sendo uma espécie comum em áreas urbanas. Além disso, o nome popular é registrado para o Nordeste e Paraíba, o que favorece a escolha.",
+      "ferramentas": [
+        "consultar_nome_popular",
+        "registrar"
+      ]
+    },
+    {
+      "id": "flora-2026-000929",
+      "texto": "corriola",
+      "gabarito": "indeterminado",
+      "gabarito_justificativa": "Sete Ipomoea com 'corriola' sem localidade; nome genérico do gênero.",
+      "modelo": "Ipomoea aristolochiifolia (7025)",
+      "modelo_confianca": "alta",
+      "modelo_justificativa": "A espécie 'corriola' é comum em praças, ruas, quintais e parques urbanos de João Pessoa, sendo uma espécie comum em áreas de uso urbano. Além disso, o nome popular 'corriola' é registrado para o Nordeste e Paraíba, o que favorece a escolha dessa espécie. A espécie pertence à Mata Atlântica e é nativa, o que também é uma regra de desempate favorável.",
+      "ferramentas": [
+        "consultar_nome_popular",
+        "registrar"
+      ]
+    },
+    {
+      "id": "flora-2026-000987",
+      "texto": "dama-da-noite",
+      "gabarito": "indeterminado",
+      "gabarito_justificativa": "Cestrum axillare, Ipomoea alba e Selenicereus undatus sem localidade; empate.",
+      "modelo": "Cestrum axillare (14636)",
+      "modelo_confianca": "alta",
+      "modelo_justificativa": "A espécie 'Cestrum axillare' (dama-da-noite) é comum em praças, ruas, quintais e parques urbanos de João Pessoa e é cultivada como ornamental e alimentícia. Além disso, o nome popular 'dama-da-noite' é registrado para o Nordeste e estados vizinhos, o que favorece essa espécie.",
+      "ferramentas": [
+        "consultar_nome_popular",
+        "registrar"
+      ]
+    },
+    {
+      "id": "flora-2026-001015",
+      "texto": "enxerto",
+      "gabarito": "indeterminado",
+      "gabarito_justificativa": "Rhipsalis baccifera e R. lindbergiana, ambos 'enxerto' no Nordeste; empate.",
+      "modelo": "Rhipsalis baccifera (1683)",
+      "modelo_confianca": "alta",
+      "modelo_justificativa": "Uso urbano em João Pessoa: prefira a espécie comum em praças, ruas, quintais e parques urbanos de JP, cultivada (ornamental, alimentícia, medicinal de quintal) ou espontânea (mato de calçada e terreno baldio).",
+      "ferramentas": [
+        "consultar_nome_popular",
+        "consultar_especie",
+        "buscar_semelhante",
+        "registrar"
+      ]
+    },
+    {
+      "id": "flora-2026-001066",
+      "texto": "espinheiro",
+      "gabarito": "Piptadenia retusa (618368)",
+      "gabarito_justificativa": "Piptadenia retusa tem 'espinheiro' no Nordeste; Lachesiodendron sem localidade.",
+      "modelo": "Lachesiodendron viridiflorum (605431)",
+      "modelo_confianca": "alta",
+      "modelo_justificativa": "O nome popular 'espinheiro' é comum em praças, ruas e quintais de João Pessoa, e o candidato 'Lachesiodendron viridiflorum' é comum em áreas urbanas e cultivado.",
+      "ferramentas": [
+        "consultar_nome_popular",
+        "registrar"
+      ]
+    },
+    {
+      "id": "flora-2026-001247",
+      "texto": "grama-marinha",
+      "gabarito": "Halophila decipiens (105838)",
+      "gabarito_justificativa": "Halophila decipiens tem o nome para 'Nordeste e Sudeste'; Halodule wrightii só 'Brazil'. Confiança baixa: Halodule é a erva marinha mais comum no litoral nordestino.",
+      "modelo": "Halodule wrightii (17116)",
+      "modelo_confianca": "alta",
+      "modelo_justificativa": "Uso urbano em João Pessoa: a espécie 'grama-marinha' é comum em praças, ruas, quintais e parques urbanos de João Pessoa, cultivada (ornamental, alimentícia, medicinal de quintal) ou espontânea (mato de calçada e terreno baldio).",
+      "ferramentas": [
+        "consultar_nome_popular",
+        "registrar"
+      ]
+    },
+    {
+      "id": "flora-2026-001266",
+      "texto": "guaçatonga",
+      "gabarito": "Casearia sylvestris (14384)",
+      "gabarito_justificativa": "Fonte não desempata (SE × MG/RR), mas 'guaçatonga' é o nome consagrado de Casearia sylvestris. Decisão por conhecimento botânico, não pela fonte.",
+      "modelo": "Casearia decandra (14367)",
+      "modelo_confianca": "alta",
+      "modelo_justificativa": "Uso urbano em João Pessoa é a regra de desempate principal.",
+      "ferramentas": [
+        "consultar_nome_popular",
+        "registrar"
+      ]
+    },
+    {
+      "id": "flora-2026-001273",
+      "texto": "guamirim",
+      "gabarito": "indeterminado",
+      "gabarito_justificativa": "Eugenia florida e Myrcia guianensis com 'guamirim' sem localidade; empate.",
+      "modelo": "Eugenia florida (10400)",
+      "modelo_confianca": "alta",
+      "modelo_justificativa": "O nome popular 'guamirim' é comum em praças, ruas, quintais e parques urbanos de João Pessoa, e o candidato 'Eugenia florida' é comum em ambientes urbanos. Além disso, o nome 'guamirim' é registrado para o Nordeste e estados vizinhos, o que favorece o candidato com o nome registrado em João Pessoa.",
+      "ferramentas": [
+        "consultar_nome_popular",
+        "registrar"
+      ]
+    },
+    {
+      "id": "flora-2026-001414",
+      "texto": "jambú",
+      "gabarito": "Acmella oleracea (15913)",
+      "gabarito_justificativa": "Fonte não desempata (ambos Acre), mas jambu é Acmella oleracea, a hortaliça. Decisão por conhecimento botânico, não pela fonte.",
+      "modelo": "Acmella ciliata (15912)",
+      "modelo_confianca": "alta",
+      "modelo_justificativa": "O nome popular 'jambú' é comum em praças, ruas, quintais e parques urbanos de João Pessoa, e o candidato 'Acmella ciliata' é comum em áreas urbanas. Além disso, o domínio 'Mata Atlântica' é o mais relevante para o contexto geográfico de João Pessoa.",
+      "ferramentas": [
+        "consultar_nome_popular",
+        "registrar"
+      ]
+    },
+    {
+      "id": "flora-2026-001542",
+      "texto": "língua-de-vaca",
+      "gabarito": "indeterminado",
+      "gabarito_justificativa": "Rumex obtusifolius e Symphytum officinale sem localidade; Echinodorus só Sul/Sudeste; empate.",
+      "modelo": "Echinodorus paniculatus (4266)",
+      "modelo_confianca": "alta",
+      "modelo_justificativa": "A espécie língua-de-vaca é comum em praças, ruas, quintais e parques urbanos de João Pessoa, sendo cultivada (ornamental, alimentícia, medicinal de quintal) ou espontânea (mato de calçada e terreno baldio). Além disso, o nome popular é registrado para o Nordeste, a Paraíba e estados vizinhos, e a espécie ocorre na Mata Atlântica. Portanto, a resposta é 'língua-de-vaca' com confiança alta.",
+      "ferramentas": [
+        "consultar_nome_popular",
+        "registrar"
+      ]
+    },
+    {
+      "id": "flora-2026-001562",
+      "texto": "maçaranduba",
+      "gabarito": "indeterminado",
+      "gabarito_justificativa": "Manilkara rufula e M. salzmannii sem localidade; empate (em JP, M. salzmannii seria mais provável pela restinga).",
+      "modelo": "Manilkara rufula (14481)",
+      "modelo_confianca": "alta",
+      "modelo_justificativa": "O nome popular 'maçaranduba' é comum em praças, ruas e parques urbanos de João Pessoa e é associado a espécies comuns em ambientes urbanos. Além disso, o candidato com o nome científico 'Manilkara rufula' ocorre na Mata Atlântica, o que se alinha com a regra de domínio. Portanto, escolhemos o candidato 14481.",
+      "ferramentas": [
+        "consultar_nome_popular",
+        "registrar"
+      ]
+    },
+    {
+      "id": "flora-2026-001599",
+      "texto": "mamica-de-cadela",
+      "gabarito": "indeterminado",
+      "gabarito_justificativa": "Brosimum gaudichaudii (MG) e Zanthoxylum rhoifolium (Sudeste e Sul): nenhum registro compatível com a PB.",
+      "modelo": "Brosimum gaudichaudii (19772)",
+      "modelo_confianca": "alta",
+      "modelo_justificativa": "A espécie 'mamica-de-cadela' é comum em praças, ruas e quintais de João Pessoa, e seu nome popular é registrado para o Nordeste e Paraíba. Além disso, ela ocorre na Mata Atlântica, conforme as regras de desempate.",
+      "ferramentas": [
+        "consultar_nome_popular",
+        "registrar"
+      ]
+    },
+    {
+      "id": "flora-2026-001685",
+      "texto": "marmelada-de-cavalo",
+      "gabarito": "indeterminado",
+      "gabarito_justificativa": "Quatro Desmodium com 'marmelada-de-cavalo' sem localidade; empate.",
+      "modelo": "Desmodium adscendens (22931)",
+      "modelo_confianca": "alta",
+      "modelo_justificativa": "A espécie 'Desmodium adscendens' (marmelada-de-cavalo) é comum em praças, ruas, quintais e parques urbanos de João Pessoa, sendo cultivada (ornamental, alimentícia, medicinal de quintal) ou espontânea (mato de calçada e terreno baldio). Além disso, seu domínio inclui a Mata Atlântica, conforme as regras de desempate.",
+      "ferramentas": [
+        "consultar_nome_popular",
+        "registrar"
+      ]
+    },
+    {
+      "id": "flora-2026-001709",
+      "texto": "mastruz",
+      "gabarito": "Dysphania ambrosioides (139867)",
+      "gabarito_justificativa": "Dysphania ambrosioides sem restrição regional e é o mastruz do Nordeste; Amaranthus spinosus só no Acre.",
+      "modelo": "Amaranthus spinosus (15408)",
+      "modelo_confianca": "alta",
+      "modelo_justificativa": "O nome popular 'mastruz' é comum em praças, ruas, quintais e parques urbanos de João Pessoa, e o candidato 'Amaranthus spinosus' é comum em ambientes urbanos e cultivado. Além disso, o nome é registrado para o Nordeste e estados vizinhos, o que favorece o candidato com uso urbano em João Pessoa. O domínio da espécie também é compatível com a região.",
+      "ferramentas": [
+        "consultar_nome_popular",
+        "registrar"
+      ]
+    },
+    {
+      "id": "flora-2026-001711",
+      "texto": "mata-brasil",
+      "gabarito": "indeterminado",
+      "gabarito_justificativa": "Commelina benghalensis e C. diffusa com 'mata-brasil' sem localidade; empate.",
+      "modelo": "Commelina benghalensis (16910)",
+      "modelo_confianca": "alta",
+      "modelo_justificativa": "A espécie 'mata-brasil' é comum em praças, ruas, quintais e parques urbanos de João Pessoa e é registrada para o Nordeste, a Paraíba e estados vizinhos. Além disso, ela ocorre na Mata Atlântica, o que se alinha com a regra de desempate sobre domínio.",
+      "ferramentas": [
+        "consultar_nome_popular",
+        "registrar"
+      ]
+    },
+    {
+      "id": "flora-2026-001743",
+      "texto": "milhã",
+      "gabarito": "Panicum peladoense (13393)",
+      "gabarito_justificativa": "Panicum peladoense tem 'milhã' registrado para a Paraíba; Digitaria ciliaris só no RS.",
+      "modelo": "Digitaria ciliaris (13176)",
+      "modelo_confianca": "alta",
+      "modelo_justificativa": "O nome popular 'milhã' é registrado em praças, ruas, quintais e parques urbanos de João Pessoa, especialmente em áreas comuns como a Mata Atlântica e Caatinga, e é associado a espécies comuns em ambientes urbanos.",
+      "ferramentas": [
+        "consultar_nome_popular",
+        "registrar"
+      ]
+    },
+    {
+      "id": "flora-2026-001870",
+      "texto": "palma",
+      "gabarito": "indeterminado",
+      "gabarito_justificativa": "Nopalea, Opuntia ficus-indica e Tacinga, todos 'palma' no Nordeste; empate (palma forrageira cobre mais de uma).",
+      "modelo": "Opuntia ficus-indica (1614)",
+      "modelo_confianca": "alta",
+      "modelo_justificativa": "A espécie com uso urbano em João Pessoa e com nome registrado para o Nordeste do Brasil é a mais apropriada.",
+      "ferramentas": [
+        "consultar_nome_popular",
+        "registrar"
+      ]
+    },
+    {
+      "id": "flora-2026-002039",
+      "texto": "pindaíba-branca",
+      "gabarito": "indeterminado",
+      "gabarito_justificativa": "Duguetia lanceolata e Xylopia laevigata com 'pindaíba-branca' sem localidade; empate.",
+      "modelo": "Duguetia lanceolata (110319)",
+      "modelo_confianca": "alta",
+      "modelo_justificativa": "A espécie 'Duguetia lanceolata' é comum em praças, ruas e quintais de João Pessoa, com uso urbano e cultivado, alinhando-se com a regra de desempate sobre o uso urbano em João Pessoa.",
+      "ferramentas": [
+        "consultar_nome_popular",
+        "registrar"
+      ]
+    },
+    {
+      "id": "flora-2026-002238",
+      "texto": "sucupira",
+      "gabarito": "Diplotropis incexis (79057)",
+      "gabarito_justificativa": "Diplotropis incexis tem 'sucupira' no Nordeste; Dahlstedtia araripensis só MA/CE/PI.",
+      "modelo": "Dahlstedtia araripensis (135542)",
+      "modelo_confianca": "alta",
+      "modelo_justificativa": "O nome popular 'sucupira' é comum em praças, ruas, quintais e parques urbanos de João Pessoa, e o candidato com o nome científico 'Dahlstedtia araripensis' é comum em áreas urbanas do Nordeste e da Paraíba. Além disso, o domínio 'Caatinga' é relevante para João Pessoa.",
+      "ferramentas": [
+        "consultar_nome_popular",
+        "registrar"
+      ]
+    },
+    {
+      "id": "flora-2026-002285",
+      "texto": "tapereba",
+      "gabarito": "Spondias tuberosa (4405)",
+      "gabarito_justificativa": "A grafia 'tapereba' (sem acento) é registrada para Spondias tuberosa no Nordeste; 'taperebá' é S. mombin. Confiança baixa: pode ser só falta de acento.",
+      "modelo": "Spondias mombin (4404)",
+      "modelo_confianca": "alta",
+      "modelo_justificativa": "O nome popular 'tapereba' é comum em praças, ruas, quintais e parques urbanos de João Pessoa, e o candidato 4404 é comum em áreas urbanas e cultivado. Além disso, o nome é registrado para o Nordeste, a Paraíba e estados vizinhos, o que favorece o candidato 4404.",
+      "ferramentas": [
+        "consultar_nome_popular",
+        "registrar"
+      ]
+    },
+    {
+      "id": "flora-2026-002301",
+      "texto": "tembetaru",
+      "gabarito": "indeterminado",
+      "gabarito_justificativa": "Zanthoxylum petiolare (RJ) e Z. rhoifolium (Sudeste e Sul): nenhum registro compatível com a PB.",
+      "modelo": "Zanthoxylum petiolare (1152)",
+      "modelo_confianca": "alta",
+      "modelo_justificativa": "O nome popular 'tembetaru' é comum em praças, ruas e quintais de João Pessoa, indicando uso urbano. Além disso, a espécie ocorre na Mata Atlântica, conforme as regras de desempate.",
+      "ferramentas": [
+        "consultar_nome_popular",
+        "registrar"
+      ]
+    }
+  ]
+}

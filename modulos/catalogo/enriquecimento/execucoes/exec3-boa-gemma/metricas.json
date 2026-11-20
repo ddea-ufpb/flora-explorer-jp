@@ -1,0 +1,443 @@
+{
+  "rodada": "exec3-boa-gemma",
+  "spec": "boa",
+  "modelo": "gemma4:e2b",
+  "digest_modelo": "b37049369adfe3d2b653af0ab301a062ca5cbe96ace6aa0d3f2559ee9b563fc2",
+  "n_itens": 40,
+  "formato_valido": 40,
+  "acuracia": 0.325,
+  "acuracia_decididos": 0.619,
+  "n_decididos": 21,
+  "tempo_total_s": 496.1,
+  "passos_media": 3.73,
+  "passos_mediana": 4.0,
+  "passos_max": 6,
+  "nao_resolvidos": 0,
+  "chamadas_invalidas": 0,
+  "respostas_sem_ferramenta": 0,
+  "matriz": {
+    "decidido": {
+      "mesma espécie do gabarito": 13,
+      "outra espécie": 8,
+      "indeterminado": 0,
+      "não resolvido": 0
+    },
+    "indeterminado": {
+      "mesma espécie do gabarito": 0,
+      "outra espécie": 19,
+      "indeterminado": 0,
+      "não resolvido": 0
+    }
+  },
+  "acuracia_por_confianca": {
+    "alta": {
+      "acertos": 12,
+      "itens": 37
+    },
+    "media": {
+      "acertos": 1,
+      "itens": 3
+    }
+  },
+  "erros": [
+    {
+      "id": "flora-2026-000129",
+      "texto": "amor-de-velho",
+      "gabarito": "indeterminado",
+      "gabarito_justificativa": "Quatro Desmodium com 'amor-de-velho' sem localidade; nada na fonte desempata.",
+      "modelo": "Desmodium incanum (115339)",
+      "modelo_confianca": "alta",
+      "modelo_justificativa": "O nome popular \"amor-de-velho\" é compartilhado por Desmodium incanum, que possui nomes populares como \"amor-de-velho\" e é uma das opções com maior probabilidade de ser associada a regiões como o Nordeste.",
+      "ferramentas": [
+        "consultar_nome_popular",
+        "consultar_especie",
+        "consultar_especie",
+        "registrar"
+      ]
+    },
+    {
+      "id": "flora-2026-000132",
+      "texto": "amor-seco",
+      "gabarito": "indeterminado",
+      "gabarito_justificativa": "D. axillare e D. incanum com 'amor-seco' sem localidade; empate.",
+      "modelo": "Desmodium axillare (22933)",
+      "modelo_confianca": "alta",
+      "modelo_justificativa": "A espécie Desmodium axillare possui o nome popular \"amor-seco\" e é nativa, o que é um fator positivo, e a regra de desempate 1 (uso urbano) é a mais relevante para um morador de João Pessoa.",
+      "ferramentas": [
+        "consultar_nome_popular",
+        "consultar_especie",
+        "consultar_especie",
+        "registrar"
+      ]
+    },
+    {
+      "id": "flora-2026-000323",
+      "texto": "batatarana",
+      "gabarito": "indeterminado",
+      "gabarito_justificativa": "Distimake macrocalyx (Brasil) e três Ipomoea (sem localidade) dividem o nome; empate.",
+      "modelo": "Ipomoea alba (7022)",
+      "modelo_confianca": "alta",
+      "modelo_justificativa": "A espécie Ipomoea alba é um candidato forte pois possui o nome popular \"batatarana\" e é comum em diversas regiões, e a regra de desempate 1 (uso urbano em João Pessoa) favorece espécies cultivadas ou espontâneas, e a regra 3 (Domínio) a inclui na Mata Atlântica.",
+      "ferramentas": [
+        "consultar_nome_popular",
+        "consultar_especie",
+        "consultar_especie",
+        "registrar"
+      ]
+    },
+    {
+      "id": "flora-2026-000357",
+      "texto": "boa-noite",
+      "gabarito": "Turnera subulata (21354)",
+      "gabarito_justificativa": "Turnera subulata é o único com 'boa-noite' registrado para o Nordeste; os demais sem localidade.",
+      "modelo": "Ipomoea alba (7022)",
+      "modelo_confianca": "alta",
+      "modelo_justificativa": "O nome popular \"boa-noite\" é um sinônimo direto para a espécie Ipomoea alba, que é nativa e possui ampla distribuição, o que se alinha com as regras de desempate para regiões como o Nordeste.",
+      "ferramentas": [
+        "consultar_nome_popular",
+        "consultar_especie",
+        "registrar"
+      ]
+    },
+    {
+      "id": "flora-2026-000457",
+      "texto": "cajarana",
+      "gabarito": "Spondias dulcis (21760)",
+      "gabarito_justificativa": "Spondias dulcis tem 'cajarana' sem restrição regional; S. mombin só no Acre.",
+      "modelo": "Spondias mombin (4404)",
+      "modelo_confianca": "media",
+      "modelo_justificativa": "A regra 1 (Uso urbano em João Pessoa) sugere que a espécie nativa (Spondias mombin) é mais provável de ser encontrada em ambientes urbanos, enquanto a regra 2 (Onde o nome é usado) favorece a espécie nativa para o Nordeste.",
+      "ferramentas": [
+        "consultar_nome_popular",
+        "consultar_especie",
+        "consultar_especie",
+        "registrar"
+      ]
+    },
+    {
+      "id": "flora-2026-000465",
+      "texto": "calumbi",
+      "gabarito": "indeterminado",
+      "gabarito_justificativa": "Piptadenia retusa (Nordeste) e Senegalia bahiensis (semiárido) são ambos compatíveis com a PB; empate.",
+      "modelo": "Piptadenia adiantoides (18944)",
+      "modelo_confianca": "alta",
+      "modelo_justificativa": "A espécie Piptadenia adiantoides possui o nome popular \"calumbi\" e é comum no Brasil, com forte presença na Caatinga e Mata Atlântica, o que se alinha com as regras de desempate para uma planta encontrada em ambientes variados.",
+      "ferramentas": [
+        "consultar_nome_popular",
+        "consultar_especie",
+        "registrar"
+      ]
+    },
+    {
+      "id": "flora-2026-000534",
+      "texto": "capim-bambu",
+      "gabarito": "indeterminado",
+      "gabarito_justificativa": "Pharus lappulaceus e P. latifolius com 'capim-bambu' sem localidade; empate.",
+      "modelo": "Pharus lappulaceus (13520)",
+      "modelo_confianca": "alta",
+      "modelo_justificativa": "O nome popular \"capim-bambu\" está listado como um nome popular para a espécie Pharus lappulaceus, e a regra 1 (uso urbano em João Pessoa) é a mais forte para desempate, pois este nome popular é o que foi fornecido.",
+      "ferramentas": [
+        "consultar_nome_popular",
+        "consultar_especie",
+        "registrar"
+      ]
+    },
+    {
+      "id": "flora-2026-000730",
+      "texto": "carrapicho-namorado",
+      "gabarito": "indeterminado",
+      "gabarito_justificativa": "D. axillare e D. incanum com 'carrapicho-namorado' sem localidade; empate.",
+      "modelo": "Desmodium incanum (115339)",
+      "modelo_confianca": "alta",
+      "modelo_justificativa": "A regra 1 (Uso urbano em João Pessoa) sugere a espécie comum em praças, ruas, quintais, etc., e a regra 2 (Onde o nome é usado) favorece a espécie registrada para o Nordeste/estados vizinhos. Ambos os nomes populares têm \"carrapicho-namorado\", mas a espécie 115339 tem mais nomes populares relacionados a \"carrapicho\" e é exótica, o que pode ser mais comum em ambientes urbanos.",
+      "ferramentas": [
+        "consultar_nome_popular",
+        "consultar_especie",
+        "consultar_especie",
+        "registrar"
+      ]
+    },
+    {
+      "id": "flora-2026-000840",
+      "texto": "cipó-de-cobra",
+      "gabarito": "indeterminado",
+      "gabarito_justificativa": "Três Aristolochia com 'cipó-de-cobra' em âmbito Brasil; Cissus decidua só na BA; empate entre as Aristolochia.",
+      "modelo": "Aristolochia trilobata (15766)",
+      "modelo_confianca": "alta",
+      "modelo_justificativa": "A espécie Aristolochia trilobata possui o nome popular \"cipó-de-cobra\" e é uma das que possui nomes populares relacionados a \"milhomes\" e \"jarrinha\", o que sugere uma forte associação com o uso popular em áreas urbanas, o que se alinha com a regra 1 de uso urbano em João Pessoa.",
+      "ferramentas": [
+        "consultar_nome_popular",
+        "consultar_especie",
+        "consultar_especie",
+        "consultar_especie",
+        "consultar_especie",
+        "registrar"
+      ]
+    },
+    {
+      "id": "flora-2026-000929",
+      "texto": "corriola",
+      "gabarito": "indeterminado",
+      "gabarito_justificativa": "Sete Ipomoea com 'corriola' sem localidade; nome genérico do gênero.",
+      "modelo": "Ipomoea aristolochiifolia (7025)",
+      "modelo_confianca": "alta",
+      "modelo_justificativa": "O nome popular 'corriola' é um sinônimo direto da espécie Ipomoea aristolochiifolia, e a regra de desempate prioriza o uso urbano em João Pessoa. Como 'corriola' é um nome comum, é provável que seja a espécie mais comum em ambientes urbanos.",
+      "ferramentas": [
+        "consultar_nome_popular",
+        "consultar_especie",
+        "registrar"
+      ]
+    },
+    {
+      "id": "flora-2026-000987",
+      "texto": "dama-da-noite",
+      "gabarito": "indeterminado",
+      "gabarito_justificativa": "Cestrum axillare, Ipomoea alba e Selenicereus undatus sem localidade; empate.",
+      "modelo": "Ipomoea alba (7022)",
+      "modelo_confianca": "alta",
+      "modelo_justificativa": "A espécie Ipomoea alba é um candidato forte pois o nome popular \"dama-da-noite\" é listado em seus nomes populares, e a regra de desempate 1 (uso urbano em João Pessoa) é aplicada, pois a espécie é comum e ornamental.",
+      "ferramentas": [
+        "consultar_nome_popular",
+        "consultar_especie",
+        "consultar_especie",
+        "registrar"
+      ]
+    },
+    {
+      "id": "flora-2026-001015",
+      "texto": "enxerto",
+      "gabarito": "indeterminado",
+      "gabarito_justificativa": "Rhipsalis baccifera e R. lindbergiana, ambos 'enxerto' no Nordeste; empate.",
+      "modelo": "Rhipsalis lindbergiana (1707)",
+      "modelo_confianca": "alta",
+      "modelo_justificativa": "A espécie Rhipsalis lindbergiana é a única candidata com o nome popular 'enxerto' listado como nome popular, e a regra 1 (uso urbano) é aplicada, pois a espécie é nativa do Nordeste do Brasil, o que se alinha com a preferência de nomes regionais.",
+      "ferramentas": [
+        "consultar_nome_popular",
+        "consultar_especie",
+        "consultar_especie",
+        "registrar"
+      ]
+    },
+    {
+      "id": "flora-2026-001066",
+      "texto": "espinheiro",
+      "gabarito": "Piptadenia retusa (618368)",
+      "gabarito_justificativa": "Piptadenia retusa tem 'espinheiro' no Nordeste; Lachesiodendron sem localidade.",
+      "modelo": "Lachesiodendron viridiflorum (605431)",
+      "modelo_confianca": "alta",
+      "modelo_justificativa": "A espécie Lachesiodendron viridiflorum possui um nome popular 'espinheiro' e é comum em regiões com ocorrência na Caatinga, o que se alinha com as regras de desempate para o Nordeste.",
+      "ferramentas": [
+        "consultar_nome_popular",
+        "consultar_especie",
+        "consultar_especie",
+        "registrar"
+      ]
+    },
+    {
+      "id": "flora-2026-001247",
+      "texto": "grama-marinha",
+      "gabarito": "Halophila decipiens (105838)",
+      "gabarito_justificativa": "Halophila decipiens tem o nome para 'Nordeste e Sudeste'; Halodule wrightii só 'Brazil'. Confiança baixa: Halodule é a erva marinha mais comum no litoral nordestino.",
+      "modelo": "Halodule wrightii (17116)",
+      "modelo_confianca": "alta",
+      "modelo_justificativa": "A regra 1 foi aplicada: a espécie com fonte_reflora_id 17116 é a Halodule wrightii, e a regra 2 foi aplicada, pois o nome popular é registrado para o Brasil, e a regra 3 foi aplicada, pois ambas ocorrem na Mata Atlântica. A escolha é baseada na aplicação das regras de desempate.",
+      "ferramentas": [
+        "consultar_nome_popular",
+        "consultar_especie",
+        "consultar_especie",
+        "registrar"
+      ]
+    },
+    {
+      "id": "flora-2026-001266",
+      "texto": "guaçatonga",
+      "gabarito": "Casearia sylvestris (14384)",
+      "gabarito_justificativa": "Fonte não desempata (SE × MG/RR), mas 'guaçatonga' é o nome consagrado de Casearia sylvestris. Decisão por conhecimento botânico, não pela fonte.",
+      "modelo": "Casearia decandra (14367)",
+      "modelo_confianca": "alta",
+      "modelo_justificativa": "A espécie Casearia decandra é a candidata, pois o nome popular 'guaçatonga' está listado em seus nomes populares, e a regra 1 (uso urbano) é a mais forte para um ambiente urbano como João Pessoa.",
+      "ferramentas": [
+        "consultar_nome_popular",
+        "consultar_especie",
+        "registrar"
+      ]
+    },
+    {
+      "id": "flora-2026-001273",
+      "texto": "guamirim",
+      "gabarito": "indeterminado",
+      "gabarito_justificativa": "Eugenia florida e Myrcia guianensis com 'guamirim' sem localidade; empate.",
+      "modelo": "Eugenia florida (10400)",
+      "modelo_confianca": "alta",
+      "modelo_justificativa": "A espécie Eugenia florida é mais provável, pois possui o nome popular 'guamirim' listado em seus nomes populares e a regra de desempate 1 (uso urbano em João Pessoa) favorece espécies cultivadas/ornamentais.",
+      "ferramentas": [
+        "consultar_nome_popular",
+        "consultar_especie",
+        "consultar_especie",
+        "registrar"
+      ]
+    },
+    {
+      "id": "flora-2026-001414",
+      "texto": "jambú",
+      "gabarito": "Acmella oleracea (15913)",
+      "gabarito_justificativa": "Fonte não desempata (ambos Acre), mas jambu é Acmella oleracea, a hortaliça. Decisão por conhecimento botânico, não pela fonte.",
+      "modelo": "Acmella ciliata (15912)",
+      "modelo_confianca": "alta",
+      "modelo_justificativa": "A regra 1 foi aplicada: A espécie 15912 é nativa e tem uso em ambientes variados, o que a torna uma forte candidata para ser encontrada em ambientes urbanos de João Pessoa.",
+      "ferramentas": [
+        "consultar_nome_popular",
+        "consultar_especie",
+        "registrar"
+      ]
+    },
+    {
+      "id": "flora-2026-001515",
+      "texto": "leiteira",
+      "gabarito": "Sebastiania jacobinensis (17677)",
+      "gabarito_justificativa": "Sebastiania jacobinensis tem 'leiteira' no NE; Tabernaemontana laeta sem localidade.",
+      "modelo": "Tabernaemontana laeta (4864)",
+      "modelo_confianca": "alta",
+      "modelo_justificativa": "A espécie Tabernaemontana laeta possui o nome popular \"leiteira\" e é comum em regiões com Mata Atlântica, o que se alinha com a diversidade de flora de João Pessoa.",
+      "ferramentas": [
+        "consultar_nome_popular",
+        "consultar_especie",
+        "consultar_especie",
+        "registrar"
+      ]
+    },
+    {
+      "id": "flora-2026-001542",
+      "texto": "língua-de-vaca",
+      "gabarito": "indeterminado",
+      "gabarito_justificativa": "Rumex obtusifolius e Symphytum officinale sem localidade; Echinodorus só Sul/Sudeste; empate.",
+      "modelo": "Echinodorus paniculatus (4266)",
+      "modelo_confianca": "alta",
+      "modelo_justificativa": "A espécie Echinodorus paniculatus é a candidata com o nome popular 'língua-de-vaca' e é nativa de regiões que incluem a Mata Atlântica, o que se alinha com a regra de desempate de preferir espécies da Mata Atlântica ou Caatinga.",
+      "ferramentas": [
+        "consultar_nome_popular",
+        "consultar_especie",
+        "registrar"
+      ]
+    },
+    {
+      "id": "flora-2026-001562",
+      "texto": "maçaranduba",
+      "gabarito": "indeterminado",
+      "gabarito_justificativa": "Manilkara rufula e M. salzmannii sem localidade; empate (em JP, M. salzmannii seria mais provável pela restinga).",
+      "modelo": "Manilkara rufula (14481)",
+      "modelo_confianca": "alta",
+      "modelo_justificativa": "A espécie Manilkara rufula é candidata, e a regra 1 (Uso urbano em João Pessoa) é a mais relevante para um morador local.",
+      "ferramentas": [
+        "consultar_nome_popular",
+        "consultar_especie",
+        "consultar_especie",
+        "registrar"
+      ]
+    },
+    {
+      "id": "flora-2026-001599",
+      "texto": "mamica-de-cadela",
+      "gabarito": "indeterminado",
+      "gabarito_justificativa": "Brosimum gaudichaudii (MG) e Zanthoxylum rhoifolium (Sudeste e Sul): nenhum registro compatível com a PB.",
+      "modelo": "Zanthoxylum rhoifolium (1162)",
+      "modelo_confianca": "alta",
+      "modelo_justificativa": "O nome popular \"mamica-de-cadela\" está listado como um nome popular para Zanthoxylum rhoifolium, que possui uma ampla gama de nomes populares, incluindo variações como \"mamica-de-porca\" e \"pau-de-cachorro\", o que sugere uma forte associação com a flora do Nordeste/Sudeste, alinhando-se com a regra de desempate 2.",
+      "ferramentas": [
+        "consultar_nome_popular",
+        "consultar_especie",
+        "consultar_especie",
+        "registrar"
+      ]
+    },
+    {
+      "id": "flora-2026-001685",
+      "texto": "marmelada-de-cavalo",
+      "gabarito": "indeterminado",
+      "gabarito_justificativa": "Quatro Desmodium com 'marmelada-de-cavalo' sem localidade; empate.",
+      "modelo": "Desmodium adscendens (22931)",
+      "modelo_confianca": "alta",
+      "modelo_justificativa": "O nome popular 'marmelada-de-cavalo' é um sinônimo registrado para Desmodium adscendens, e a regra de desempate 1 (Uso urbano em João Pessoa) é a mais forte para indicar a espécie mais provável em um contexto urbano.",
+      "ferramentas": [
+        "consultar_nome_popular",
+        "consultar_especie",
+        "registrar"
+      ]
+    },
+    {
+      "id": "flora-2026-001711",
+      "texto": "mata-brasil",
+      "gabarito": "indeterminado",
+      "gabarito_justificativa": "Commelina benghalensis e C. diffusa com 'mata-brasil' sem localidade; empate.",
+      "modelo": "Commelina diffusa (16911)",
+      "modelo_confianca": "alta",
+      "modelo_justificativa": "A espécie Commelina diffusa possui o nome popular \"mata-brasil\" listado em seus nomes populares, e a regra de desempate 1 (uso urbano em João Pessoa) favorece a escolha de uma espécie comum em ambientes urbanos.",
+      "ferramentas": [
+        "consultar_nome_popular",
+        "consultar_especie",
+        "consultar_especie",
+        "registrar"
+      ]
+    },
+    {
+      "id": "flora-2026-001870",
+      "texto": "palma",
+      "gabarito": "indeterminado",
+      "gabarito_justificativa": "Nopalea, Opuntia ficus-indica e Tacinga, todos 'palma' no Nordeste; empate (palma forrageira cobre mais de uma).",
+      "modelo": "Opuntia ficus-indica (1614)",
+      "modelo_confianca": "alta",
+      "modelo_justificativa": "A espécie Opuntia ficus-indica é um candidato forte pois possui o nome popular \"palma\" e é amplamente registrada no Nordeste do Brasil, o que se alinha com a regra de desempate de localização geográfica.",
+      "ferramentas": [
+        "consultar_nome_popular",
+        "consultar_especie",
+        "consultar_especie",
+        "consultar_especie",
+        "registrar"
+      ]
+    },
+    {
+      "id": "flora-2026-002039",
+      "texto": "pindaíba-branca",
+      "gabarito": "indeterminado",
+      "gabarito_justificativa": "Duguetia lanceolata e Xylopia laevigata com 'pindaíba-branca' sem localidade; empate.",
+      "modelo": "Duguetia lanceolata (110319)",
+      "modelo_confianca": "alta",
+      "modelo_justificativa": "A espécie Duguetia lanceolata possui o nome popular \"pindaíba-branca\" entre seus sinônimos, o que fornece forte evidência para a escolha.",
+      "ferramentas": [
+        "consultar_nome_popular",
+        "consultar_especie",
+        "registrar"
+      ]
+    },
+    {
+      "id": "flora-2026-002301",
+      "texto": "tembetaru",
+      "gabarito": "indeterminado",
+      "gabarito_justificativa": "Zanthoxylum petiolare (RJ) e Z. rhoifolium (Sudeste e Sul): nenhum registro compatível com a PB.",
+      "modelo": "Zanthoxylum rhoifolium (1162)",
+      "modelo_confianca": "alta",
+      "modelo_justificativa": "A espécie 1162 é mais provável porque o nome popular 'tembetaru' está listado em seus nomes populares, e a regra de desempate 2 sugere preferir o candidato com nome popular registrado para o Sudeste e Sul, o que abrange a região de João Pessoa.",
+      "ferramentas": [
+        "consultar_nome_popular",
+        "consultar_especie",
+        "consultar_especie",
+        "registrar"
+      ]
+    },
+    {
+      "id": "flora-2026-002405",
+      "texto": "violeta",
+      "gabarito": "Dalbergia cearensis (79037)",
+      "gabarito_justificativa": "Dalbergia cearensis tem 'violeta' sem restrição regional; Erythroxylum barbatum só no Ceará.",
+      "modelo": "Erythroxylum barbatum (17415)",
+      "modelo_confianca": "media",
+      "modelo_justificativa": "A espécie Erythroxylum barbatum tem o nome popular \"violeta\" e é registrada como nativa do Ceará, o que se alinha com a regra de preferir nomes registrados para o Nordeste.",
+      "ferramentas": [
+        "consultar_nome_popular",
+        "consultar_especie",
+        "consultar_especie",
+        "registrar"
+      ]
+    }
+  ]
+}

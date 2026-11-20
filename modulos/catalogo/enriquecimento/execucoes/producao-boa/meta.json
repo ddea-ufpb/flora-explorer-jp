@@ -1,0 +1,33 @@
+{
+  "rodada": "producao-boa",
+  "spec": "boa",
+  "itens": "ambiguos",
+  "n_itens": 292,
+  "modelo": "qwen3:1.7b",
+  "digest_modelo": "8f68893c685c3ddff2aa3fffce2aa60a30bb2da65ca488b61fff134a4d1730e7",
+  "temperature": 0,
+  "seed": 42,
+  "think": false,
+  "max_passos": 6,
+  "sha256_spec": {
+    "boa.json": "a82f4c3837f0634c6a4b3865d4b4a108614719a54c9a81162ee7b02b159903a8",
+    "regras_desempate.md": "e25418b86c5634af5648bd37561bc2919f1482690dd86702dd69a4f1724da851"
+  },
+  "git_commit": "b98e7baced57596f9d4fce6906acc699bdfbb2e3",
+  "git_nao_commitado": [
+    "?? modulos/catalogo/enriquecimento/dados.jsonl",
+    "?? modulos/catalogo/enriquecimento/execucoes/",
+    "?? modulos/catalogo/enriquecimento/seed/",
+    ""
+  ],
+  "maquina": {
+    "so": "Linux-7.0.0-43-generic-x86_64-with-glibc2.39",
+    "cpu": "AMD Ryzen 7 5825U with Radeon Graphics",
+    "ram_gb": 15.0,
+    "gpu": "integrada (AMD Radeon/Barcelo), sem GPU dedicada"
+  },
+  "inicio": "2026-11-19T20:16:57",
+  "observacao": "temperature 0 e seed fixa; mesmo assim a saída pode variar entre rodadas (threads/CPU).",
+  "fim": "2026-11-19T21:49:37",
+  "tempo_total_s": 5559.9
+}
