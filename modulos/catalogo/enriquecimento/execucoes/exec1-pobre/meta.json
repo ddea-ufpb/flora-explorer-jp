@@ -1,0 +1,32 @@
+{
+  "rodada": "exec1-pobre",
+  "spec": "pobre",
+  "itens": "gabarito",
+  "n_itens": 40,
+  "modelo": "qwen3:1.7b",
+  "digest_modelo": "8f68893c685c3ddff2aa3fffce2aa60a30bb2da65ca488b61fff134a4d1730e7",
+  "temperature": 0,
+  "seed": 42,
+  "think": false,
+  "max_passos": 6,
+  "sha256_spec": {
+    "pobre.json": "fa797e8fe26ff332f798e5d498bf709295409a3111683671eea4ffc4ed1ee794"
+  },
+  "git_commit": "4129679da489da4b4c41fe087f8c1dc1a9f2c39b",
+  "git_nao_commitado": [
+    "?? modulos/catalogo/enriquecimento/enriquecedor.py",
+    "?? modulos/catalogo/enriquecimento/especificacoes/",
+    "?? modulos/catalogo/enriquecimento/execucoes/",
+    ""
+  ],
+  "maquina": {
+    "so": "Linux-7.0.0-43-generic-x86_64-with-glibc2.39",
+    "cpu": "AMD Ryzen 7 5825U with Radeon Graphics",
+    "ram_gb": 15.0,
+    "gpu": "integrada (AMD Radeon/Barcelo), sem GPU dedicada"
+  },
+  "inicio": "2026-11-19T19:50:27",
+  "observacao": "temperature 0 e seed fixa; mesmo assim a saída pode variar entre rodadas (threads/CPU).",
+  "fim": "2026-11-19T20:05:31",
+  "tempo_total_s": 903.5
+}

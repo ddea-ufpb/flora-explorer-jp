@@ -4,10 +4,13 @@
 Lê dados.jsonl e especies_pb.jsonl e gera:
   seed/especie_catalogo.sql       — INSERT … ON CONFLICT (nome_cientifico) DO UPDATE, idempotente
   seed/especie_nome_popular.sql   — PROPOSTA de tabela nome popular → espécie (ver ESQUEMA.md)
-  seed/revisao_pendente.jsonl     — o que NÃO entra sem revisão humana: confiança baixa,
-                                    indeterminado e não resolvido
+  seed/revisao_pendente.jsonl     — o que NÃO entra sem revisão humana: tudo o que o modelo
+                                    decidiu, indeterminado e não resolvido
 
-Regra de entrada (§5.2 do tutorial): só entra no módulo o mapeamento com confiança alta ou média.
+Regra de entrada: só entra no módulo o mapeamento resolvido POR REGRA (nome com um único
+candidato na fonte). Decisões do modelo vão para revisão. Motivo medido (execucoes/MEDICOES.md):
+o modelo declarou confiança "alta" em 40/40 itens do gabarito e acertou 11, então a confiança
+declarada não serve de filtro.
 
 Uso:
   python3 carregar.py                     # gera os arquivos .sql
@@ -25,7 +28,7 @@ from pathlib import Path
 AQUI = Path(__file__).resolve().parent
 COLETA = AQUI.parent / "coleta"
 SEED = AQUI / "seed"
-ENTRA = {"alta", "media"}
+ENTRA_METODO = {"regra"}  # ver docstring: a confiança do modelo não discrimina acerto de erro
 
 
 def _jsonl(p: Path) -> list[dict]:
@@ -54,7 +57,7 @@ def main() -> None:
     dados = _jsonl(AQUI / "dados.jsonl")
     especies = {e["fonte_reflora_id"]: e for e in _jsonl(COLETA / "especies_pb.jsonl")}
 
-    aceitos = [d for d in dados if d["fonte_reflora_id"] and d["confianca"] in ENTRA]
+    aceitos = [d for d in dados if d["fonte_reflora_id"] and d["metodo"] in ENTRA_METODO]
     revisao = [d for d in dados if d not in aceitos]
 
     # nome_popular principal de cada espécie: o nome aceito com mais registros na fonte; empate → alfabético

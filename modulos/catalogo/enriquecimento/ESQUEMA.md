@@ -28,7 +28,7 @@ Pré-requisito no Postgres: a tabela `especie_catalogo` do modelo de dados, com 
 | `familia` | string \| null | sim | `especie_catalogo.familia` |
 | `origem` | `nativa` \| `exotica` \| null | sim | `especie_catalogo.origem`. Vem **por regra** do `establishmentMeans` da fonte para BR-PB (R14), nunca do modelo. `exotica_invasora` não existe nesta fonte |
 | `metodo` | `regra` \| `modelo` | sim | `regra`: o nome tem um único candidato. `modelo`: o nome é ambíguo e foi decidido por `qwen3:1.7b` |
-| `confianca` | `alta` \| `media` \| `baixa` \| null | sim | Para `regra`, sempre `alta`. Para `modelo`, a declarada no `registrar`. **Baixa não entra no módulo sem revisão** |
+| `confianca` | `alta` \| `media` \| `baixa` \| null | sim | Para `regra`, sempre `alta`. Para `modelo`, a declarada no `registrar`. **Nenhuma decisão do modelo entra no módulo sem revisão** (ver abaixo) |
 | `justificativa` | string \| null | não | Frase do modelo (ou "único candidato na fonte") |
 | `motivo_nao_resolvido` | string \| null | sim | Preenchido quando `fonte_reflora_id` é nulo: indeterminado, teto de passos estourado ou não processado |
 | `modelo`, `rodada` | string \| null | não | Modelo com digest e rodada que decidiu (só `metodo = modelo`) |
@@ -39,8 +39,10 @@ Pré-requisito no Postgres: a tabela `especie_catalogo` do modelo de dados, com 
 | Arquivo | Conteúdo | Regra |
 |---|---|---|
 | `seed/especie_catalogo.sql` | Uma linha por espécie de `coleta/especies_pb.jsonl` (872) | `id = fonte_reflora_id`. `nome_popular` = nome aceito com mais registros na fonte (nulo se a espécie só tem nomes ambíguos não resolvidos). `bioma` = domínios fitogeográficos. `status_ameaca = 'nao_avaliada'`. `descricao`, `curiosidade` e `foto_referencia_url` ficam NULL (revisão manual, ADR-0006) |
-| `seed/especie_nome_popular.sql` | **Proposta**: tabela `nome_popular → especie_id` | Só confiança `alta` ou `media` |
-| `seed/revisao_pendente.jsonl` | Itens fora da carga | Confiança baixa, indeterminado e não resolvido, com o motivo |
+| `seed/especie_nome_popular.sql` | **Proposta**: tabela `nome_popular → especie_id` | Só `metodo = regra` (nome com um único candidato na fonte) |
+| `seed/revisao_pendente.jsonl` | Itens fora da carga | **Todo item decidido pelo modelo**, mais indeterminados e não resolvidos, com o motivo |
+
+**Por que a decisão do modelo não entra direto, mesmo com confiança `alta`:** no gabarito, o modelo declarou `alta` em 40 de 40 itens e acertou 11 (`execucoes/MEDICOES.md`). A confiança declarada não separa acerto de erro, então não serve de filtro. Quem revisar `revisao_pendente.jsonl` pode mover itens para a carga à mão.
 
 ## Decisão que muda no projeto (item C4)
 
