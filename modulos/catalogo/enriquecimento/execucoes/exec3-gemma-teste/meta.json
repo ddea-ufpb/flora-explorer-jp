@@ -1,0 +1,30 @@
+{
+  "rodada": "exec3-gemma-teste",
+  "spec": "boa",
+  "itens": "gabarito",
+  "n_itens": 2,
+  "modelo": "gemma4:e2b",
+  "digest_modelo": "b37049369adfe3d2b653af0ab301a062ca5cbe96ace6aa0d3f2559ee9b563fc2",
+  "temperature": 0,
+  "seed": 42,
+  "think": false,
+  "max_passos": 6,
+  "sha256_spec": {
+    "boa.json": "a82f4c3837f0634c6a4b3865d4b4a108614719a54c9a81162ee7b02b159903a8",
+    "regras_desempate.md": "e25418b86c5634af5648bd37561bc2919f1482690dd86702dd69a4f1724da851"
+  },
+  "git_commit": "c4b7dd4980ecaffe1317724c3aa108777dea75a2",
+  "git_nao_commitado": [
+    ""
+  ],
+  "maquina": {
+    "so": "Linux-7.0.0-43-generic-x86_64-with-glibc2.39",
+    "cpu": "AMD Ryzen 7 5825U with Radeon Graphics",
+    "ram_gb": 15.0,
+    "gpu": "integrada (AMD Radeon/Barcelo), sem GPU dedicada"
+  },
+  "inicio": "2026-11-19T21:57:17",
+  "observacao": "temperature 0 e seed fixa; mesmo assim a saída pode variar entre rodadas (threads/CPU).",
+  "fim": "2026-11-19T21:57:47",
+  "tempo_total_s": 29.2
+}

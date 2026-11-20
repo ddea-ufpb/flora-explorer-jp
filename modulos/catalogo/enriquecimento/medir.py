@@ -6,7 +6,7 @@ resolvidos (§5.4), mais a matriz de confusão e a lista de erros para comentar.
 Com duas rodadas, também lista os erros que persistiram nas duas.
 
 Uso: python3 medir.py exec1-pobre exec2-boa
-Saída: execucoes/<rodada>/metricas.json e execucoes/MEDICOES.md
+Saída: execucoes/<rodada>/metricas.json e execucoes/MEDICOES.md (ou o nome dado em --saida=)
 """
 from __future__ import annotations
 
@@ -128,11 +128,15 @@ def relatorio(ms: list[dict]) -> str:
 
 
 def main() -> None:
-    rodadas = sys.argv[1:] or ["exec1-pobre", "exec2-boa"]
+    args = sys.argv[1:]
+    saida_md = "MEDICOES.md"
+    if args and args[0].startswith("--saida="):  # ex.: --saida=MEDICOES-modelos.md exec2-boa exec3-boa-gemma
+        saida_md, args = args[0].split("=", 1)[1], args[1:]
+    rodadas = args or ["exec1-pobre", "exec2-boa"]
     gabarito = {g["id"]: g for g in _jsonl(AQUI / "gabarito.jsonl")}
     especies = {e["fonte_reflora_id"]: e["nome_cientifico"] for e in _jsonl(AQUI.parent / "coleta" / "especies_pb.jsonl")}
     ms = [medir(r, gabarito, especies) for r in rodadas]
-    (EXEC / "MEDICOES.md").write_text(relatorio(ms), encoding="utf-8")
+    (EXEC / saida_md).write_text(relatorio(ms), encoding="utf-8")
     for m in ms:
         print(f"{m['rodada']}: acurácia {m['acuracia']:.1%} · decididos {m['acuracia_decididos']:.1%} · "
               f"válido {m['formato_valido']}/{m['n_itens']} · não resolvidos {m['nao_resolvidos']} · {m['tempo_total_s']/60:.1f} min")

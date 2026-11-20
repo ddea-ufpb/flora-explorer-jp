@@ -64,6 +64,8 @@ Máquina: AMD Ryzen 7 5825U, 15 GB de RAM, GPU integrada Radeon (Barcelo), **sem
 | Execução 1 (pobre) | 19/11 19:50–20:05 | código idêntico ao de `b98e7ba` (sem diff; sha256 da especificação confere) |
 | Enriquecedor commitado | 19/11 19:56 | `b98e7ba` |
 | Execução 2 (boa) | 19/11 20:05–20:16 | `b98e7ba` |
+| Produção (boa, 292 ambíguos) | 19/11 20:16–21:49 | `b98e7ba` |
+| Execução 3 (boa, `gemma4:e2b`) | 19/11 21:57–22:06 | `c4b7dd4` |
 
 ## 8. Medições (B4)
 
@@ -87,6 +89,25 @@ Matriz de confusão, execução 2:
 | indeterminado (19) | 0 | 19 | 0 | 0 |
 
 Confiança declarada × acerto, execução 2: `alta` em 40/40 itens, 11 acertos. A coluna `indeterminado` está zerada nas duas execuções.
+
+### Execução 3: mesma especificação, outro modelo
+
+Para separar o efeito da especificação do efeito do modelo, repeti a execução 2 trocando só o modelo: `gemma4:e2b` (digest `b37049369adf…`, mesmos `temperature`, `seed` e `think: false`). Completo em [`execucoes/MEDICOES-modelos.md`](execucoes/MEDICOES-modelos.md).
+
+| Medida | Execução 2 (`qwen3:1.7b`) | Execução 3 (`gemma4:e2b`) |
+|---|---|---|
+| Formato válido | 40/40 | 40/40 |
+| **Acurácia** | 27,5% | **32,5%** |
+| Acurácia nos 21 decididos | 52,4% | 61,9% |
+| Tempo total | 11,1 min | 8,3 min |
+| Passos por item (média · mediana · máx.) | 2,15 · 2 · 5 | 3,73 · 4 · 6 |
+| Respostas sem ferramenta | 3 | 0 |
+| Indeterminado respondido (de 19) | 0 | 0 |
+| Confiança × acerto | `alta` 11/40 | `alta` 12/37 · `media` 1/3 |
+
+- **Saldo de 2 itens:** o gemma acertou 5 que o qwen errou (`carvão-branco`, `mastruz`, `milhã`, `sucupira`, `tapereba`) e errou 3 que o qwen acertou (`cajarana`, `leiteira`, `violeta`).
+- **Processo:** consultou mais, com 4 passos típicos contra 2, e mesmo assim levou menos tempo.
+- **O que não mudou:** **também nunca se absteve**, nos 19 indeterminados. 24 erros persistem nos dois modelos: os 19 indeterminados do gabarito e 5 decididos (`boa-noite`, `espinheiro`, `grama-marinha`, `guaçatonga`, `jambú`).
 
 ## 9. Análise de erros
 
@@ -156,4 +177,5 @@ A taxa de abstenção na produção (1 em 292) repete o que o gabarito mostrou (
 
 - O modelo recita as regras de desempate em vez de aplicá-las, chegando a afirmar evidência que a ferramenta não devolveu (`mastruz`, `dama-da-noite`).
 - A acurácia foi medida em 40 itens: 1 item = 2,5 pontos percentuais. A diferença entre as execuções (1 item) está dentro do ruído.
-- **Próximo experimento:** repetir a execução 2 com um segundo modelo (`gemma4:e2b`) para separar o ganho da especificação do ganho do modelo.
+- Trocar o modelo (`gemma4:e2b`, execução 3) rendeu 2 itens: 5 pontos percentuais, ainda perto do ruído. Também não fez o modelo se abster. A falta de abstenção não é de um modelo específico: é do desenho, em que `registrar` aceita qualquer candidato.
+- **Próximo experimento:** tirar do modelo o que uma regra faz. Antes da chamada, um filtro determinístico elimina os candidatos sem localidade no Nordeste. Se nenhum ou mais de um candidato tiver evidência, a resposta é `indeterminado` por regra, e o modelo só desempata quando houver evidência que separe os candidatos. Depois, medir de novo no mesmo gabarito.
