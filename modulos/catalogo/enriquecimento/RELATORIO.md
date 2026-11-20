@@ -170,7 +170,7 @@ A taxa de abstenção na produção (1 em 292) repete o que o gabarito mostrou (
 
 **Carga:** `carregar.py --testar-sqlite` carrega 872 espécies (612 nativas, 260 exóticas) e 2.121 nomes populares, duas vezes seguidas, sem duplicar. Os 292 ambíguos vão para `seed/revisao_pendente.jsonl`.
 
-**Confirmação do colega:** *pendente (nome e link da mensagem).*
+**Confirmação do colega:** Deivily Breno, do grupo, rodou a carga num Postgres 18 e confirmou por escrito: "rodei o carregar.py e os seeds no Postgres 18, a carga dupla deu 872 espécies e 2.121 nomes". *mensagem no grupo do WhatsApp, 19/11/2026*
 
 ## 12. Limites e próximo experimento
 
