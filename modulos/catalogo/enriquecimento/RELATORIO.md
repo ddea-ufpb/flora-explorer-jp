@@ -42,9 +42,9 @@ Ponto de partida: o agente.sh da aula. Reescrevi o laço em Python, mantendo a e
 
 Shell → Python. Os argumentos do modelo são lidos com json.loads e nunca chegam a um shell nem a um eval. Em shell, interpolar a saída do modelo num comando é exatamente o risco que zera o item B3.
 Lista branca explícita. Três executores de domínio + registrar. Ferramenta desconhecida, parâmetro faltando ou id fora dos candidatos voltam ao modelo como erro, sem executar nada.
-Normalização de argumentos. Id numérico → string, "Indeterminado" → indeterminado, média → media. Um modelo de 1,7B erra a forma com frequência; sem isso, respostas certas apareciam como formato inválido.
+Normalização de argumentos. Id numérico → string, "Indeterminado" → indeterminado, média → media. Um modelo pequeno pode errar a forma; a normalização evita que uma resposta certa seja contada como formato inválido.
 Teto configurável e item não resolvido preservado. Com --max-passos (padrão 6), o item que estoura o teto entra no dados.jsonl com o motivo, em vez de sumir.
-Especificação fora do código. O prompt de sistema, as descrições e as regras de desempate ficam em pobre.json, boa.json e regras_desempate.md. As duas execuções rodam com o mesmo código e diferem só no arquivo de especificação, que é o que a medição compara.
+Especificação fora do código. O prompt de sistema, as descrições e as regras de desempate ficam em pobre.json, boa.json e regras_desempate.md. As execuções 1 e 2 rodam com o mesmo código e diferem só no arquivo de especificação, que é o que a medição compara; a execução 3 difere da 2 só no `--modelo`.
 think: false e seed: 42. O modo thinking quadruplicava o tempo (16,3 s contra 4,3 s) sem mudar a ferramenta escolhida.
 
 ## 6. Modelo e máquina
@@ -113,26 +113,26 @@ Para separar o efeito da especificação do efeito do modelo, repeti a execuçã
 
 Os dados de cada erro foram copiados de `execucoes/*/metricas.json`. Os comentários são do Lucas.
 
-### Erro 1 · `mastruz` (flora-2026-001709), nas duas execuções
+### Erro 1 · `mastruz` (flora-2026-001709), nas execuções 1 e 2 (o gemma acertou na 3)
 - **Gabarito:** *Dysphania ambrosioides*. Justificativa do rótulo: "sem restrição regional e é o mastruz do Nordeste; *Amaranthus spinosus* só no Acre".
 - **Modelo (exec. 2):** *Amaranthus spinosus*, confiança alta. Justificativa: "o nome é registrado para o Nordeste e estados vizinhos". A ferramenta tinha devolvido `localidades_do_nome: ["Acre"]` para essa espécie.
-- ✍️ *Comentário:* O modelo recitou a regra em vez de aplicá-la. A ferramenta devolveu localidades_do_nome: ["Acre"] para Amaranthus spinosus, e a justificativa diz “registrado para o Nordeste”. Ou seja, ela não descreve a evidência: repete a regra de desempate (“prefira registros do Nordeste”) como se fosse um fato sobre o candidato escolhido. A justificativa foi escrita para combinar com a regra, não a partir do que a ferramenta retornou. Por isso a justificativa do modelo não serve como garantia. A correção cabe ao código: o registrar exigiria que o modelo citasse a localidade do candidato escolhido, e o laço compararia essa citação com a saída da ferramenta, devolvendo como erro quando não batesse.
+- ✍️ *Comentário:* O modelo recitou a regra em vez de aplicá-la. A ferramenta devolveu localidades_do_nome: ["Acre"] para Amaranthus spinosus, e a justificativa diz “registrado para o Nordeste”. Ou seja, ela não descreve a evidência: repete a regra de desempate (“prefira registros do Nordeste”) como se fosse um fato sobre o candidato escolhido. A justificativa foi escrita para combinar com a regra, não a partir do que a ferramenta retornou. Por isso a justificativa do modelo não serve como garantia. A correção cabe ao código: o registrar exigiria que o modelo citasse a localidade do candidato escolhido, e o laço compararia essa citação com a saída da ferramenta, devolvendo como erro quando não batesse. Com a mesma especificação e a mesma evidência, o gemma4:e2b (execução 3) escolheu Dysphania ambrosioides e citou o dado certo. Então parte deste erro é de capacidade do modelo, não da especificação.
 
-### Erro 2 · `jambú` (flora-2026-001414), nas duas execuções
+### Erro 2 · `jambú` (flora-2026-001414), nas três execuções
 - **Gabarito:** *Acmella oleracea*. Justificativa do rótulo: "fonte não desempata (ambos Acre); decisão por conhecimento botânico".
 - **Modelo (exec. 2):** *Acmella ciliata*, alta. Justificativa: "comum em áreas urbanas; domínio Mata Atlântica".
-- ✍️ *Comentário:* Este erro não dá para cobrar do modelo. As duas Acmella têm o nome registrado só no Acre, e o gabarito decidiu por conhecimento que a fonte não contém (jambu é a hortaliça A. oleracea). A justificativa do modelo (“comum em áreas urbanas; domínio Mata Atlântica”) usa atributos que valem para os dois candidatos, então não desempata nada. Na prática é um empate resolvido pela posição. O item mede se um modelo de 1,7B sabe botânica regional, e ele não sabe. A resposta defensável seria indeterminado, o que liga este erro ao erro persistente.
+- ✍️ *Comentário:* Este erro não dá para cobrar do modelo. As duas Acmella têm o nome registrado só no Acre, e o gabarito decidiu por conhecimento que a fonte não contém (jambu é a hortaliça A. oleracea). A justificativa do modelo (“comum em áreas urbanas; domínio Mata Atlântica”) usa atributos que valem para os dois candidatos, então não desempata nada. Na prática é um empate resolvido pela posição. O item mede se o modelo sabe botânica regional, e nenhum dos dois sabe: o gemma4:e2b também escolheu A. ciliata. A resposta defensável seria indeterminado, o que liga este erro ao erro persistente.
 
-### Erro 3 · `carvão-branco` (flora-2026-000742), nas duas execuções
+### Erro 3 · `carvão-branco` (flora-2026-000742), nas execuções 1 e 2 (o gemma acertou na 3)
 - **Gabarito:** *Croton glandulosus*. Justificativa do rótulo: "'carvão-branco' no Nordeste; *Callisthene fasciculata* só no Mato Grosso".
 - **Modelo (exec. 2):** *Callisthene fasciculata*, alta, depois de 5 passos (`consultar_nome_popular → consultar_especie ×2 → buscar_semelhante → registrar`). A especificação boa fez o modelo buscar mais evidência, e a decisão não mudou.
-- ✍️ *Comentário:* É o caso mais revelador: a evidência era limpa (Croton glandulosus no Nordeste contra Callisthene fasciculata no Mato Grosso), o modelo consultou mais (5 passos) e manteve a resposta errada. A especificação boa mudou o processo (mais consultas, menos respostas sem ferramenta), mas não a decisão. O modelo coleta a evidência e depois não a usa. Isso também tem consequência para o B1: esse desempate é determinístico, porque comparar a localidade de cada candidato com “Nordeste” uma regra faz com 100% de acerto. Esse filtro deveria estar no gerar_dados.py, e o modelo só deveria receber o que sobra depois dele.
+- ✍️ *Comentário:* É o caso mais revelador: a evidência era limpa (Croton glandulosus no Nordeste contra Callisthene fasciculata no Mato Grosso), o modelo consultou mais (5 passos) e manteve a resposta errada. A especificação boa mudou o processo (mais consultas, menos respostas sem ferramenta), mas não a decisão. O modelo coleta a evidência e depois não a usa. Isso também tem consequência para o B1: esse desempate é determinístico, porque comparar a localidade de cada candidato com “Nordeste” uma regra faz com 100% de acerto. Esse filtro deveria rodar no enriquecedor.py, antes da chamada ao modelo, e o modelo só deveria receber o que sobra depois dele. O gemma4:e2b acertou este item com a mesma especificação: a evidência estava na conversa, e faltou ao modelo menor usá-la.
 
 ### Erro persistente · abstenção que nunca acontece (ex.: `dama-da-noite`, flora-2026-000987)
 - **Gabarito:** indeterminado ("*Cestrum axillare*, *Ipomoea alba* e *Selenicereus undatus* sem localidade; empate").
-- **Modelo (exec. 1 e 2):** *Cestrum axillare*, alta. Na exec. 2 a justificativa afirma "o nome é registrado para o Nordeste", o que a fonte não diz.
+- **Modelo (exec. 1 e 2):** *Cestrum axillare*, alta. Na exec. 2 a justificativa afirma "o nome é registrado para o Nordeste", o que a fonte não diz. Na exec. 3, o gemma4:e2b escolheu *Ipomoea alba*, também com confiança alta.
 - Vale para os 19 itens indeterminados do gabarito: nenhum foi acertado em nenhuma execução.
-- ✍️ *Comentário:* Os três candidatos não têm localidade registrada, então nenhuma evidência favorece nenhum deles, e mesmo assim o modelo escolhe um e declara confiança alta. Pior: inventa evidência (“registrado para o Nordeste”). Nos 19 indeterminados do gabarito, ele nunca se absteve, nas duas execuções. Uma hipótese: para um modelo pequeno, preencher um id é o caminho natural do registrar, e “indeterminado” é uma resposta que ele quase nunca dá. Como a confiança foi alta em 40 de 40 itens, ela não informa nada. A correção é tirar essas duas decisões do modelo:
+- ✍️ *Comentário:* Os três candidatos não têm localidade registrada, então nenhuma evidência favorece nenhum deles, e mesmo assim o modelo escolhe um e declara confiança alta. Pior: inventa evidência (“registrado para o Nordeste”). Nos 19 indeterminados do gabarito, a abstenção não aconteceu nenhuma vez em três execuções, com dois modelos, e aconteceu 1 vez em 292 na produção. Uma hipótese: para um modelo pequeno, preencher um id é o caminho natural do registrar, e “indeterminado” é uma resposta que ele quase nunca dá. Como a confiança foi alta em 40 de 40 itens no qwen e em 37 de 40 no gemma, ela não informa nada. A correção é tirar essas duas decisões do modelo:
 
 o código detecta o empate: se nenhum candidato tem evidência regional que o distinga, o item vira indeterminado sem chamar o modelo;
 a confiança é calculada pelo código, a partir de quanto a evidência discrimina, e não declarada pelo modelo.
@@ -140,7 +140,10 @@ a confiança é calculada pelo código, a partir de quanto a evidência discrimi
 Isso reforça a decisão da seção 10: nada decidido pelo modelo entra no módulo sem revisão humana.
 
 ### Possíveis erros de rotulagem, notados depois da medição (gabarito mantido)
-- ✍️ `tapereba` e `boa-noite`: *mantenha ou retire, conforme a sua avaliação. O gabarito não foi alterado.*
+- ✍️ `boa-noite`: rotulei *Turnera subulata* pelo critério 2.2 (único candidato com o nome registrado no Nordeste). Mas o critério 2.1, uso comum em praças e quintais de JP, pesa mais nos meus próprios critérios, e por ele *Catharanthus roseus*, a vinca ornamental muito comum na cidade, provavelmente venceria. Pulei o critério de maior peso.
+- ✍️ `tapereba`: rotulei *Spondias tuberosa* com confiança baixa, pela distinção de acento (tapereba × taperebá). Só que o item do corpus junta as duas grafias (R16), então essa distinção não existe na pergunta que o modelo recebe. Pelo critério 2.1, *S. mombin* (cajá, comum em quintais de JP) também seria candidata forte.
+- Se os dois rótulos estivessem errados, o qwen na execução 2 subiria de 11 para 13 acertos (32,5%) e o gemma cairia de 13 para 12 (30,0%). A ordem entre os modelos se inverteria. Ou seja, a diferença entre os dois modelos é menor que a incerteza do próprio gabarito.
+- O gabarito não foi alterado: mudar rótulos depois de ver a saída do modelo invalidaria a medição.
 
 ## 10. Uma decisão que muda (C4)
 
